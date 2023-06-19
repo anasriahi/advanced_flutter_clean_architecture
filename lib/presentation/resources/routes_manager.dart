@@ -1,5 +1,5 @@
 import 'package:advanced_flutter_clean_architecture/presentation/forgot_password/forgot_password_view.dart';
-import 'package:advanced_flutter_clean_architecture/presentation/login/login_view.dart';
+import 'package:advanced_flutter_clean_architecture/presentation/login/view/login_view.dart';
 import 'package:advanced_flutter_clean_architecture/presentation/main/main_view.dart';
 import 'package:advanced_flutter_clean_architecture/presentation/onboarding/onboarding_view.dart';
 import 'package:advanced_flutter_clean_architecture/presentation/register/register_view.dart';

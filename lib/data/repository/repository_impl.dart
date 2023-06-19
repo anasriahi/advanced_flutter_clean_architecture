@@ -15,10 +15,9 @@ class RepositoryImpl extends Repository {
   RepositoryImpl(this._remoteDataSource, this._networkInfo);
 
   @override
-  Future<Either<Failure, Authentication>> login(
-      LoginRequest loginRequest) async {
+  Future<Either<Failure, Authentication>> login(LoginRequest loginRequest) async {
     if (await _networkInfo.isConnected) {
-      // its connected to internet itd safe to call API
+      // its connected to internet its safe to call API
       try {
         final response = await _remoteDataSource.login(loginRequest);
         if (response.status == ApiInternalStatus.SUCCESS) {

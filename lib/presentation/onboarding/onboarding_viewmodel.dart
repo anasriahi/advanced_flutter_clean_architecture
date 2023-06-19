@@ -8,7 +8,7 @@ import '../resources/strings_manager.dart';
 
 class OnBoardingViewModel extends BaseViewModel with OnBoardingViewModelInputs, OnBoardingViewModelOutputs {
   // stream controller outputs
-  StreamController _streamController = StreamController<SliderViewObject>();
+  final StreamController _streamController = StreamController<SliderViewObject>();
   late final List<SliderObject> _list;
   int _currentIndex = 0;
 
@@ -74,7 +74,7 @@ class OnBoardingViewModel extends BaseViewModel with OnBoardingViewModelInputs, 
 }
 
 // inputs mean that "Orders" that our view model will receive from view
-abstract class OnBoardingViewModelInputs {
+abstract mixin class OnBoardingViewModelInputs {
   int goNext(); // when user clicks on right arrow or swipe left
   int goPrevious(); // when user clicks on left arrow or swipe right
   void onPageChanged(int index);
@@ -83,6 +83,6 @@ abstract class OnBoardingViewModelInputs {
   Sink get inputSliderViewObject;
 }
 
-abstract class OnBoardingViewModelOutputs {
+abstract mixin class OnBoardingViewModelOutputs {
   Stream<SliderViewObject> get outputSliderViewObject;
 }
