@@ -9,6 +9,6 @@ abstract class BaseViewModelInputs {
 
 }
 
-abstract class BaseViewModelOutputs {
+abstract mixin class BaseViewModelOutputs {
   // will be implemented later
 }

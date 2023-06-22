@@ -17,15 +17,15 @@ class ErrorHandler implements Exception {
   }
 }
 
-Failure _handleError(DioError error) {
+Failure _handleError(DioException error) {
   switch(error.type) {
-    case DioErrorType.connectTimeout:
+    case DioExceptionType.connectionTimeout:
       return DataSource.CONNECT_TIMEOUT.getFailure();
-    case DioErrorType.sendTimeout:
+    case DioExceptionType.sendTimeout:
       return DataSource.SEND_TIMEOUT.getFailure();
-    case DioErrorType.receiveTimeout:
+    case DioExceptionType.receiveTimeout:
       return DataSource.RECIEVE_TIMEOUT.getFailure();
-    case DioErrorType.response:
+    case DioExceptionType.badResponse:
       if (error.response != null &&
           error.response?.statusCode != null &&
           error.response?.statusMessage != null) {
@@ -33,9 +33,9 @@ Failure _handleError(DioError error) {
       } else {
         return DataSource.DEFAULT.getFailure();
       }
-    case DioErrorType.cancel:
+    case DioExceptionType.cancel:
       return DataSource.CANCEL.getFailure();
-    case DioErrorType.other:
+    default:
       return DataSource.DEFAULT.getFailure();
   }
 }
@@ -54,7 +54,8 @@ enum DataSource {
   SEND_TIMEOUT,
   CACHE_ERROR,
   NO_INTERNET_CONNECTION,
-  DEFAULT
+  DEFAULT,
+  BAD_CERTIFICATE
 }
 
 extension DataSourceExtension on DataSource {

@@ -11,6 +11,13 @@ class AppStrings {
   static const onBoardingSubTitle4 = "on_boarding_desc4";
   static const skip = "Skip";
   static const String success = "success";
+  static const username = "username";
+  static const password = "password";
+  static const usernameError = "username error";
+  static const passwordError = "password error";
+  static const login = "login";
+  static const forgetPassword = "forgot_password_text";
+  static const registerText = "register_text";
 
   // error handler
   static const String badRequestError = "bad_request_error";
