@@ -1,4 +1,4 @@
-abstract class BaseViewModel extends BaseViewModelInputs with BaseViewModelOutputs {
+abstract class BaseViewModel extends BaseViewModelInputs implements BaseViewModelOutputs {
   // shared variables and functions that will be used through any view model
 }
 
@@ -9,6 +9,6 @@ abstract class BaseViewModelInputs {
 
 }
 
-abstract mixin class BaseViewModelOutputs {
+abstract class BaseViewModelOutputs {
   // will be implemented later
 }

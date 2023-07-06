@@ -5,7 +5,7 @@ import 'package:advanced_flutter_clean_architecture/domain/usecase/login_usecase
 import 'package:advanced_flutter_clean_architecture/presentation/base/baseviewmodel.dart';
 import 'package:advanced_flutter_clean_architecture/presentation/common/freezed_data_classes.dart';
 
-class LoginViewModel extends BaseViewModel with LoginViewModelInputs, LoginViewModelOutputs {
+class LoginViewModel extends BaseViewModel implements LoginViewModelInputs, LoginViewModelOutputs {
   final StreamController _userNameStreamController = StreamController<String>.broadcast();
   final StreamController _passwordStreamController = StreamController<String>.broadcast();
   final StreamController _areAllInputsValidStreamController = StreamController<void>.broadcast();
@@ -13,7 +13,6 @@ class LoginViewModel extends BaseViewModel with LoginViewModelInputs, LoginViewM
   var loginObject = LoginObject("", "");
   final LoginUseCase _loginUseCase;
   LoginViewModel(this._loginUseCase);
-  //LoginViewModel();
 
   // inputs
   @override
@@ -90,7 +89,7 @@ class LoginViewModel extends BaseViewModel with LoginViewModelInputs, LoginViewM
   }
 }
 
-abstract mixin class LoginViewModelInputs {
+abstract class LoginViewModelInputs {
   setUserName(String userName);
   setPassword(String password);
   login();
@@ -100,7 +99,7 @@ abstract mixin class LoginViewModelInputs {
   Sink get inputAreAllInputsValid;
 }
 
-abstract mixin class LoginViewModelOutputs {
+abstract class LoginViewModelOutputs {
   Stream<bool> get outIsUserNameValid;
   Stream<bool> get outIsPasswordValid;
   Stream<bool> get outAreAllInputsValid;
