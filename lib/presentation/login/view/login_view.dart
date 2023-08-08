@@ -1,4 +1,5 @@
 import 'package:advanced_flutter_clean_architecture/app/di.dart';
+import 'package:advanced_flutter_clean_architecture/presentation/common/state_renderer/state_renderer_impl.dart';
 import 'package:advanced_flutter_clean_architecture/presentation/login/viewmodel/login_viewmodel.dart';
 import 'package:advanced_flutter_clean_architecture/presentation/resources/assets_manager.dart';
 import 'package:advanced_flutter_clean_architecture/presentation/resources/color_manager.dart';
@@ -35,13 +36,22 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    return _getContentWidget();
+    return Scaffold(
+      backgroundColor: ColorManager.white,
+      body: StreamBuilder<FlowState>(
+        stream: _viewModel.outputState,
+        builder: (context, snapshot) {
+          return snapshot.data?.getScreenWidget(context, _getContentWidget(), () {
+            _viewModel.login();
+          }) ??
+            _getContentWidget();
+        },
+      ),
+    );
   }
 
   Widget _getContentWidget() {
-    return Scaffold(
-      backgroundColor: ColorManager.white,
-      body: Container(
+    return Container(
         padding: const EdgeInsets.only(top: AppPadding.p100),
         color: ColorManager.white,
         child: SingleChildScrollView(
@@ -146,7 +156,6 @@ class _LoginViewState extends State<LoginView> {
               ),
           ),
         ),
-      ),
     );
   }
 
