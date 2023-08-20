@@ -1,3 +1,5 @@
+import 'package:advanced_flutter_clean_architecture/app/app_prefs.dart';
+import 'package:advanced_flutter_clean_architecture/app/di.dart';
 import 'package:advanced_flutter_clean_architecture/presentation/onboarding/onboarding_viewmodel.dart';
 import 'package:advanced_flutter_clean_architecture/presentation/resources/assets_manager.dart';
 import 'package:advanced_flutter_clean_architecture/presentation/resources/color_manager.dart';
@@ -21,8 +23,10 @@ class OnboardingView extends StatefulWidget {
 class _OnboardingViewState extends State<OnboardingView> {
   final PageController _pageController = PageController();
   final OnBoardingViewModel _viewModel = OnBoardingViewModel();
+  final AppPreferences _appPreferences = instance<AppPreferences>();
 
   _bind() {
+    _appPreferences.setOnBoardingScreenViewed();
     _viewModel.start();
   }
 
