@@ -5,4 +5,5 @@ import 'package:advanced_flutter_clean_architecture/domain/model/models.dart';
 
 abstract class Repository {
   Future<Either<Failure, Authentication>> login(LoginRequest loginRequest);
+  Future<Either<Failure, String>> forgotPassword(String email);
 }

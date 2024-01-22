@@ -9,9 +9,12 @@ abstract class AppServiceClient {
 
   factory AppServiceClient(Dio dio, {String baseUrl}) = _AppServiceClient;
 
-  @POST("/customer/login")
+  @POST("/customers/login")
   Future<AuthenticationResponse> login(
       @Field("email") String email,
       @Field("password") String password
       );
+
+  @POST("/customers/forgotPassword")
+  Future<ForgotPasswordResponse> forgotPassword(@Field("email") String email);
 }
