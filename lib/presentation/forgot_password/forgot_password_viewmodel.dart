@@ -25,7 +25,7 @@ class ForgotPasswordViewModel extends BaseViewModel implements ForgotPasswordVie
       inputState.add(
           ErrorState(StateRendererType.popupErrorState, failure.message));
     }, (supportMessage) {
-      inputState.add(ContentState());
+      inputState.add(SuccessState(supportMessage));
     });
   }
 

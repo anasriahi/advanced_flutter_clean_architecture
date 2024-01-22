@@ -10,7 +10,6 @@ class AppStrings {
   static const onBoardingSubTitle3 = "on_boarding_desc3";
   static const onBoardingSubTitle4 = "on_boarding_desc4";
   static const skip = "Skip";
-  static const String success = "success";
   static const username = "username";
   static const password = "password";
   static const usernameError = "username error";
@@ -39,4 +38,5 @@ class AppStrings {
   static const String emailHint = 'Email';
   static const String invalidEmail = "Invalid Email";
   static const String resetPassword = "Reset Password";
+  static const String success = "success";
 }
